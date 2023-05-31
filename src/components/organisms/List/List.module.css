@@ -15,6 +15,11 @@
     align-items: center;
 }
 
+.add:hover, .title:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    color: steelblue;
+}
+
 .title {
     cursor: pointer;
     padding: 10px;

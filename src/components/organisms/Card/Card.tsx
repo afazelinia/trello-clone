@@ -1,7 +1,7 @@
 import styles from './Card.module.css';
 import { useState } from 'react';
 import { boardInitialData } from '../../../reducers';
-import { CardEditor } from '../../../components';
+import { CardEditor, Icon } from '../../../components';
 
 interface CardProps {
   index: number;
@@ -23,7 +23,7 @@ const Card = ({ listIndex, index }: CardProps) => {
       ) : (
         <div className={styles.card}>
           <div className={styles.icon}>
-            <div onClick={startEditing}>✏️</div>
+            <Icon onClick={startEditing}>✏️</Icon>
           </div>
           {card?.title}
         </div>
