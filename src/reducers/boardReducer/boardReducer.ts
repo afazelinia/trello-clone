@@ -1,5 +1,5 @@
 import { Action, ActionTypes, BoardInterface } from '../../interfaces';
-import { getUniqueId, overrideListAtIndex, removeItemAtIndex } from '../../utils';
+import { getUniqueId, moveItem, overrideListAtIndex, removeItemAtIndex } from '../../utils';
 
 const boardReducer = (state: BoardInterface, action: Action): BoardInterface => {
   const { lists } = state;
@@ -20,6 +20,11 @@ const boardReducer = (state: BoardInterface, action: Action): BoardInterface => 
       const { index, title } = payload;
       const newList = { ...lists[index], title };
       return { ...state, lists: overrideListAtIndex(lists, newList, index) };
+    }
+
+    case ActionTypes.MOVE_LIST: {
+      const { oldListIndex, newListIndex } = payload;
+      return { ...state, lists: moveItem(lists, oldListIndex, newListIndex) };
     }
 
     case ActionTypes.ADD_CARD: {

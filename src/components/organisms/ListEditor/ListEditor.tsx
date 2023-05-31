@@ -41,11 +41,23 @@ const ListEditor = ({ index, isEditMode, onFinish }: ListEditorProps) => {
     }
   };
 
+  const moveList = (newListIndex: number) => {
+    if (newListIndex >= 0 && newListIndex < lists.length) {
+      dispatch({
+        type: ActionTypes.MOVE_LIST,
+        payload: {
+          oldListIndex: index,
+          newListIndex,
+        },
+      });
+    }
+  };
+
   return (
     <>
       <div className={styles.editing}>
         <TextField placeholder='Enter list title...' value={title} onChange={changeTitle} />
-        {isEditMode && <ListControls onDelete={deleteList} />}
+        {isEditMode && <ListControls onMoveLeft={() => moveList(index - 1)} onMoveRight={() => moveList(index + 1)} />}
       </div>
       <EditButtons onSave={saveList} onCancel={onFinish} onDelete={isEditMode ? deleteList : undefined} />
     </>

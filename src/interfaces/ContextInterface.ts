@@ -4,6 +4,7 @@ export enum ActionTypes {
   ADD_LIST = 'ADD_LIST',
   DELETE_LIST = 'DELETE_LIST',
   EDIT_LIST_TITLE = 'EDIT_LIST_TITLE',
+  MOVE_LIST = 'MOVE_LIST',
   ADD_CARD = 'ADD_CARD',
   DELETE_CARD = 'DELETE_CARD',
   EDIT_CARD = 'EDIT_CARD',
@@ -22,6 +23,10 @@ export type Action =
   | {
       type: ActionTypes.EDIT_LIST_TITLE;
       payload: { index: number; title: string };
+    }
+  | {
+      type: ActionTypes.MOVE_LIST;
+      payload: { oldListIndex: number; newListIndex: number };
     }
   | {
       type: ActionTypes.ADD_CARD;

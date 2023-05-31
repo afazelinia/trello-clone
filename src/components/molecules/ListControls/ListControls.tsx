@@ -2,13 +2,14 @@ import styles from './ListControls.module.css';
 import { Icon } from '../../../components';
 
 interface ListControlsProps {
-  onDelete: Function;
+  onMoveLeft: Function;
+  onMoveRight: Function;
 }
 
-// todo hide delete button in list editor buttons
-const ListControls = ({ onDelete }: ListControlsProps) => (
+const ListControls = ({ onMoveLeft, onMoveRight }: ListControlsProps) => (
   <div className={styles.icons}>
-    <Icon onClick={() => onDelete()}>❌</Icon>
+    <Icon onClick={() => onMoveLeft()}>⬅️️</Icon>
+    <Icon onClick={() => onMoveRight()}>➡️</Icon>
   </div>
 );
 
