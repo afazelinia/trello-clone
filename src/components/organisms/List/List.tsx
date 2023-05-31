@@ -58,7 +58,7 @@ const List = ({ index }: ListProps) => {
         {addingCard ? (
           <CardEditor listIndex={index} isEditMode={false} onFinish={toggleAddingCard} />
         ) : (
-          <div className={styles.add} data-index={list?.cards?.length - 1} onClick={toggleAddingCard}>
+          <div className={styles.add} data-index={list?.cards?.length} onClick={toggleAddingCard}>
             + Add a card
           </div>
         )}
