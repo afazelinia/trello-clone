@@ -1,0 +1,7 @@
+.button {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    padding: 6px 12px;
+}
