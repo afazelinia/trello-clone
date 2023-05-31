@@ -1,0 +1,1 @@
+export { boardInitialData } from './boardReducer';

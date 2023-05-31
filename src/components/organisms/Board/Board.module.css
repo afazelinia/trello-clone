@@ -1,0 +1,26 @@
+.board {
+    height: 93%;
+    display: flex;
+    overflow-x: auto;
+}
+
+.add {
+    width: 280px;
+    margin: 10px;
+    flex-shrink: 0;
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 5px 8px;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
