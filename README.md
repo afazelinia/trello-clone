@@ -56,6 +56,7 @@ I've implemented a minimal set of features, including having cards and lists sys
 - Enhance test coverage to ensure comprehensive functionality testing.
 - Incorporate hooks for user interactions, such as detecting clicks outside elements, to improve usability.
 - Add support for multiple boards to allow users to manage different sets of tasks.
+- using a better approach for managing data with to optimize re-rendering and performance
 - Enhance the appearance of buttons and other elements at the top of the list for better visual appeal and user experience.
 - Consider using options like SCSS, styled components, or even Storybook to enhance CSS organization and maintainability.
 - Ensure responsiveness across different devices and screen sizes for a seamless user experience.
