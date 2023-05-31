@@ -1,7 +1,7 @@
 import styles from './List.module.css';
 import { useState } from 'react';
 import { Card, CardEditor, ListEditor } from '../../../components';
-import { boardInitialData } from '../../../reducers';
+import { useBoardContext } from '../../../hooks';
 
 interface ListProps {
   index: number;
@@ -10,7 +10,8 @@ interface ListProps {
 const List = ({ index }: ListProps) => {
   const [editingTitle, setEditingTitle] = useState(false);
   const [addingCard, setAddingCard] = useState(false);
-  const { lists } = boardInitialData;
+  const { state } = useBoardContext();
+  const { lists } = state;
   const list = lists?.[index];
 
   const toggleAddingCard = () => setAddingCard(!addingCard);

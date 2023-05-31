@@ -1,11 +1,12 @@
 import styles from './Board.module.css';
 import { useState } from 'react';
 import { List, ListEditor } from '../../../components';
-import { boardInitialData } from '../../../reducers';
+import { useBoardContext } from '../../../hooks';
 
 const Board = () => {
   const [addingList, setAddingList] = useState(false);
-  const { lists } = boardInitialData;
+  const { state } = useBoardContext();
+  const { lists } = state;
 
   const toggleAddingList = () => setAddingList(!addingList);
 

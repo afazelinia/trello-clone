@@ -1,6 +1,6 @@
 import styles from './ListEditor.module.css';
 import React, { useState } from 'react';
-import { boardInitialData } from '../../../reducers';
+import { useBoardContext } from '../../../hooks';
 import { EditButtons, ListControls, TextField } from '../../../components';
 
 interface ListEditorProps {
@@ -10,7 +10,8 @@ interface ListEditorProps {
 }
 
 const ListEditor = ({ index, isEditMode, onFinish }: ListEditorProps) => {
-  const { lists } = boardInitialData;
+  const { state } = useBoardContext();
+  const { lists } = state;
   const [title, setTitle] = useState<string>(lists?.[index]?.title || '');
 
   const changeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(e.target.value);

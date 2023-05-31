@@ -1,6 +1,6 @@
 import styles from './Card.module.css';
 import { useState } from 'react';
-import { boardInitialData } from '../../../reducers';
+import { useBoardContext } from '../../../hooks';
 import { CardEditor, Icon } from '../../../components';
 
 interface CardProps {
@@ -10,7 +10,8 @@ interface CardProps {
 
 const Card = ({ listIndex, index }: CardProps) => {
   const [editing, setEditing] = useState(false);
-  const { lists } = boardInitialData;
+  const { state } = useBoardContext();
+  const { lists } = state;
   const card = lists?.[listIndex]?.cards?.[index];
 
   const startEditing = () => setEditing(true);

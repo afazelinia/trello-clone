@@ -1,7 +1,7 @@
 import styles from './CardEditor.module.css';
 import React, { useState } from 'react';
 import { EditButtons, TextField } from '../../../components';
-import { boardInitialData } from '../../../reducers';
+import { useBoardContext } from '../../../hooks';
 
 interface CardEditorProps {
   listIndex: number;
@@ -11,7 +11,8 @@ interface CardEditorProps {
 }
 
 const CardEditor = ({ listIndex, cardIndex, isEditMode, onFinish }: CardEditorProps) => {
-  const { lists } = boardInitialData;
+  const { state } = useBoardContext();
+  const { lists } = state;
   const [title, setTitle] = useState<string>(lists?.[listIndex]?.cards?.[cardIndex]?.title || '');
 
   const changeTitle = (event: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(event.target.value);

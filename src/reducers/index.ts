@@ -1,1 +1,1 @@
-export { boardInitialData } from './boardReducer';
+export * from './boardReducer';
