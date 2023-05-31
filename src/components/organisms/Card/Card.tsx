@@ -44,6 +44,7 @@ const Card = ({ listIndex, index }: CardProps) => {
           onDragStart={startDragging}
           onMouseEnter={startHover}
           onMouseLeave={endHover}
+          data-index={index}
         >
           {hover && (
             <div className={styles.icon}>

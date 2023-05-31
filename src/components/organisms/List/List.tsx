@@ -27,13 +27,14 @@ const List = ({ index }: ListProps) => {
     const draggingData = e.dataTransfer.getData('text/plain');
     try {
       const { sourceCardIndex, sourceListIndex } = JSON.parse(draggingData);
+      const destinationCardIndex = Number((e.target as HTMLDivElement)?.dataset?.index);
       dispatch({
         type: ActionTypes.MOVE_CARD,
         payload: {
           sourceListIndex: sourceListIndex,
           targetListIndex: index,
           oldCardIndex: sourceCardIndex,
-          newCardIndex: 0, // todo fix this
+          newCardIndex: destinationCardIndex || 0,
         },
       });
     } catch (error) {
@@ -46,7 +47,7 @@ const List = ({ index }: ListProps) => {
       {editingTitle ? (
         <ListEditor index={index} isEditMode={true} onFinish={toggleEditingTitle} />
       ) : (
-        <div className={styles.title} onClick={toggleEditingTitle}>
+        <div className={styles.title} data-index={0} onClick={toggleEditingTitle}>
           {list?.title}
         </div>
       )}
@@ -57,7 +58,7 @@ const List = ({ index }: ListProps) => {
         {addingCard ? (
           <CardEditor listIndex={index} isEditMode={false} onFinish={toggleAddingCard} />
         ) : (
-          <div className={styles.add} onClick={toggleAddingCard}>
+          <div className={styles.add} data-index={list?.cards?.length - 1} onClick={toggleAddingCard}>
             + Add a card
           </div>
         )}
