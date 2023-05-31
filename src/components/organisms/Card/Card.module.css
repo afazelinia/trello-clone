@@ -1,12 +1,16 @@
 .card {
     position: relative;
-    cursor: pointer;
+    cursor: grab;
     background: white;
     margin: 5px;
     padding: 10px;
     font-size: 15px;
     overflow-wrap: break-word;
     min-height: 20px;
+}
+
+.card:hover {
+    background: #f5f6f7;
 }
 
 .icon {

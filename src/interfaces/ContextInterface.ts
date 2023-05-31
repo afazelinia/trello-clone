@@ -25,10 +25,6 @@ export type Action =
       payload: { index: number; title: string };
     }
   | {
-      type: ActionTypes.MOVE_LIST;
-      payload: { oldListIndex: number; newListIndex: number };
-    }
-  | {
       type: ActionTypes.ADD_CARD;
       payload: { listIndex: number; title: string };
     }
@@ -42,7 +38,16 @@ export type Action =
     }
   | {
       type: ActionTypes.MOVE_CARD;
-      payload: {};
+      payload: {
+        sourceListIndex: number;
+        targetListIndex: number;
+        oldCardIndex: number;
+        newCardIndex: number;
+      };
+    }
+  | {
+      type: ActionTypes.MOVE_LIST;
+      payload: { oldListIndex: number; newListIndex: number };
     };
 
 export interface BoardContextProps {
