@@ -1,5 +1,6 @@
 .card {
     position: relative;
+    cursor: pointer;
     background: white;
     margin: 5px;
     padding: 10px;
@@ -8,3 +9,8 @@
     min-height: 20px;
 }
 
+.icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

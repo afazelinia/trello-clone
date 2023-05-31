@@ -3,5 +3,23 @@
     cursor: pointer;
     color: white;
     font-weight: 700;
+    margin: 0 0 10px 5px;
     padding: 6px 12px;
 }
+
+.button:hover {
+    opacity: 0.7;
+}
+
+.save {
+    background-color: green;
+}
+
+.delete {
+    background-color: red;
+}
+
+.cancel {
+    background-color: gray;
+}
+
