@@ -1,18 +1,29 @@
 import styles from './Board.module.css';
-import { List } from '../../../components';
+import { useState } from 'react';
+import { List, ListEditor } from '../../../components';
 import { boardInitialData } from '../../../reducers';
 
 const Board = () => {
+  const [addingList, setAddingList] = useState(false);
   const { lists } = boardInitialData;
+
+  const toggleAddingList = () => setAddingList(!addingList);
+
   return (
     <div className={styles.board}>
       {lists?.map((list, index) => (
         <List key={list.id} index={index} />
       ))}
       <div className={styles.add}>
-        <div onClick={() => alert('add new list')} className={styles.button}>
-          + Add a list
-        </div>
+        {addingList ? (
+          <div className={styles.editor}>
+            <ListEditor isEditMode={false} onFinish={toggleAddingList} />
+          </div>
+        ) : (
+          <div onClick={toggleAddingList} className={styles.button}>
+            + Add a list
+          </div>
+        )}
       </div>
     </div>
   );
