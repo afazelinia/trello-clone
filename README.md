@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Trello Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A minimal web application similar to Trello with React.
 
-## Available Scripts
+## Technologies and Libraries Used
 
-In the project directory, you can run:
+- React
+- TypeScript
+- Jest and Testing Library
+- uuid
 
-### `npm start`
+### Quick Start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+# after download, change directory
+cd trello-clone
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# install dependencies
+npm install
 
-### `npm test`
+# start server
+npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# start testing
+npm run test
+```
 
-### `npm run build`
+### Decisions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- I utilized an atomic design pattern to create a scalable architecture that is easy to understand. 
+- To effectively manage data without relying on third-party state management libraries, I implemented a hooks-based solution using useReducer and React context as a provider component.
+- Additionally, I integrated a hook for local storage to enable data persistence.
+- When passing data through components, I opted to use indexes instead of passing the entire data array, as it allows for easier manipulation of the data through operations like adding, deleting, or updating.
+- To generate unique identifiers, I utilized the widely-used utility package called uuid.
+- For organizing CSS, I employed CSS modules to maintain a structured and manageable styling approach.
+- Finally, I conducted unit and integration tests to ensure the functionality is working as intended.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Key Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I've implemented a minimal set of features, including having cards and lists system with one active board, to mimic Trello's functionality. Additionally, I've added drag and drop functionality to enhance the usability of the task management application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Ability to add, edit, and delete lists with a title.
+- Capability to add cards with titles, and edit or delete their titles.
+- Drag and drop functionality for moving cards between columns or within a column.
+- Easy movement of lists using arrow icons, eliminating the need for drag and drop.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Areas for Improvement
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Implement drag and drop functionality for the lists by developing a custom hook specifically designed for drag and drop operations.
+- Expand the information captured in cards by adding fields for due dates, descriptions, and comments.
+- Improve the structure of the List component by breaking it down into more atomic components, such as ListHeader or ListFooter.
+- Enhance test coverage to ensure comprehensive functionality testing.
+- Incorporate hooks for user interactions, such as detecting clicks outside elements, to improve usability.
+- Add support for multiple boards to allow users to manage different sets of tasks.
+- Enhance the appearance of buttons and other elements at the top of the list for better visual appeal and user experience.
+- Consider using options like SCSS, styled components, or even Storybook to enhance CSS organization and maintainability.
+- Ensure responsiveness across different devices and screen sizes for a seamless user experience.
