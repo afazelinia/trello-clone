@@ -19,7 +19,7 @@ const Card = ({ listIndex, index }: CardProps) => {
   return (
     <>
       {editing ? (
-        <CardEditor cardIndex={index} listIndex={listIndex} onFinish={endEditing} />
+        <CardEditor cardIndex={index} isEditMode listIndex={listIndex} onFinish={endEditing} />
       ) : (
         <div className={styles.card}>
           <div className={styles.icon}>

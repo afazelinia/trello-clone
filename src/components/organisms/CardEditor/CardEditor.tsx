@@ -6,10 +6,11 @@ import { boardInitialData } from '../../../reducers';
 interface CardEditorProps {
   listIndex: number;
   cardIndex?: number | null;
+  isEditMode: boolean;
   onFinish?: () => void;
 }
 
-const CardEditor = ({ listIndex, cardIndex, onFinish }: CardEditorProps) => {
+const CardEditor = ({ listIndex, cardIndex, isEditMode, onFinish }: CardEditorProps) => {
   const { lists } = boardInitialData;
   const [title, setTitle] = useState<string>(lists?.[listIndex]?.cards?.[cardIndex]?.title || '');
 
@@ -24,7 +25,11 @@ const CardEditor = ({ listIndex, cardIndex, onFinish }: CardEditorProps) => {
       <div className={styles.editing}>
         <TextField placeholder={'Enter card title...'} value={title} onChange={changeTitle} />
       </div>
-      <EditButtons onSave={() => alert('save card')} onDelete={() => alert('delete card')} onCancel={finishEdit} />
+      <EditButtons
+        onSave={() => alert('save card')}
+        onDelete={isEditMode ? () => alert('delete card') : undefined}
+        onCancel={finishEdit}
+      />
     </>
   );
 };
